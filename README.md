@@ -14,66 +14,28 @@ Perfect for e-commerce data extraction, content aggregation, and any scenario re
 ## 🏗️ Architecture
 
 ```mermaid
-graph TB
-    subgraph "External Sources"
-        A[Websites]
-        B[REST APIs]
-        C[Single Page Apps]
-        D[Real-time Streams]
-    end
+flowchart TD
+    A[🌐 Data Sources] --> B[🔌 Adapters]
+    B --> C[🏗️ Infrastructure]
+    C --> D[⚙️ Application]
+    D --> E[🎯 Domain]
     
-    subgraph "Adapters"
-        E[HTTP Client]
-        F[WebDriver]
-        G[Message Queue]
-    end
+    A1[Websites] --> A
+    A2[APIs] --> A
+    A3[SPAs] --> A
     
-    subgraph "Infrastructure"
-        H[BeautifulSoup Parser]
-        I[Selenium Parser]
-        J[Redis Cache]
-        K[Elasticsearch]
-        L[Prometheus]
-    end
+    B1[HTTP Client] --> B
+    B2[WebDriver] --> B
     
-    subgraph "Application Services"
-        M[Extraction Service]
-        N[Transformation Service]
-        O[Persistence Service]
-        P[CQRS Service]
-    end
+    C1[Parsers] --> C
+    C2[Cache] --> C
+    C3[Database] --> C
     
-    subgraph "Domain Core"
-        Q[Product Entities]
-        R[Value Objects]
-        S[Business Rules]
-        T[Workflows]
-    end
+    D1[Services] --> D
+    D2[Workflows] --> D
     
-    A --> E
-    B --> E
-    C --> F
-    D --> G
-    
-    E --> H
-    F --> I
-    G --> H
-    
-    H --> M
-    I --> M
-    
-    M --> N
-    N --> O
-    O --> P
-    
-    M --> Q
-    N --> R
-    O --> S
-    P --> T
-    
-    J -.-> M
-    K -.-> O
-    L -.-> H
+    E1[Entities] --> E
+    E2[Business Logic] --> E
 ```
 
 ## ✨ Key Features
