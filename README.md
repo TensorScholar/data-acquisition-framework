@@ -15,20 +15,20 @@ Perfect for e-commerce data extraction, content aggregation, and any scenario re
 
 ```mermaid
 graph TB
-    subgraph "External Layer"
+    subgraph "External Sources"
         A[Websites]
         B[REST APIs]
         C[Single Page Apps]
         D[Real-time Streams]
     end
     
-    subgraph "Adapters Layer"
+    subgraph "Adapters"
         E[HTTP Client]
         F[WebDriver]
         G[Message Queue]
     end
     
-    subgraph "Infrastructure Layer"
+    subgraph "Infrastructure"
         H[BeautifulSoup Parser]
         I[Selenium Parser]
         J[Redis Cache]
@@ -36,14 +36,14 @@ graph TB
         L[Prometheus]
     end
     
-    subgraph "Application Layer"
+    subgraph "Application Services"
         M[Extraction Service]
         N[Transformation Service]
         O[Persistence Service]
         P[CQRS Service]
     end
     
-    subgraph "Domain Layer"
+    subgraph "Domain Core"
         Q[Product Entities]
         R[Value Objects]
         S[Business Rules]
