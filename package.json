@@ -1,0 +1,71 @@
+{
+  "name": "data-acquisition-framework",
+  "version": "1.0.0",
+  "description": "Enterprise-grade data extraction and processing pipeline built with TypeScript, featuring DDD, CQRS, and comprehensive testing",
+  "author": "Mohammad Atashi",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TensorScholar/data-acquisition-framework.git"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js",
+    "test": "vitest",
+    "test:coverage": "vitest --coverage",
+    "test:integration": "vitest --config vitest.integration.config.ts",
+    "test:performance": "vitest --config vitest.performance.config.ts",
+    "test:chaos": "vitest --config vitest.chaos.config.ts",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts --fix",
+    "type-check": "tsc --noEmit",
+    "docker:build": "docker build -t data-acquisition-framework .",
+    "docker:run": "docker run -p 3000:3000 --env-file .env data-acquisition-framework",
+    "k8s:deploy": "kubectl apply -f k8s/",
+    "k8s:logs": "kubectl logs -f deployment/data-acquisition-framework"
+  },
+  "keywords": [
+    "data-extraction",
+    "web-scraping",
+    "typescript",
+    "ddd",
+    "cqrs",
+    "enterprise",
+    "kubernetes",
+    "docker",
+    "observability",
+    "testing",
+    "chaos-engineering"
+  ],
+  "dependencies": {
+    "fp-ts": "^2.16.6",
+    "io-ts": "^2.2.20",
+    "selenium-webdriver": "^4.15.0",
+    "cheerio": "^1.0.0-rc.12",
+    "axios": "^1.6.2",
+    "elasticsearch": "^16.7.3",
+    "redis": "^4.6.10",
+    "parquet-wasm": "^0.5.0",
+    "uuid": "^9.0.1",
+    "zod": "^3.22.4",
+    "date-fns": "^2.30.0",
+    "winston": "^3.11.0",
+    "prom-client": "^15.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/uuid": "^9.0.7",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "eslint": "^8.54.0",
+    "tsx": "^4.6.0",
+    "typescript": "^5.3.0",
+    "vitest": "^1.0.0",
+    "@vitest/coverage-v8": "^1.0.0"
+  }
+}
