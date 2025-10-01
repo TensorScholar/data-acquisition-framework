@@ -11,29 +11,64 @@
 
 ```mermaid
 graph TB
-    subgraph "Core Domain"
-        E[Entities] --> VO[Value Objects]
-        VO --> S[Specifications]
+    subgraph "🌐 External Sources"
+        WEB[Websites]
+        API[REST APIs]
+        SPA[Single Page Apps]
+        STREAM[Real-time Streams]
     end
     
-    subgraph "Application Layer"
-        S --> AS[Application Services]
-        AS --> W[Workflows]
-        W --> P[Ports]
+    subgraph "🔌 Adapters Layer"
+        HTTP[HTTP Client]
+        SEL[WebDriver]
+        QUEUE[Message Queue]
     end
     
-    subgraph "Infrastructure"
-        P --> PA[Parsers]
-        P --> DB[(Databases)]
-        P --> C[Cache]
-        P --> M[Monitoring]
+    subgraph "🏛️ Infrastructure Layer"
+        PARSE[Parsers]
+        CACHE[Multi-level Cache]
+        DB[(Elasticsearch)]
+        REDIS[(Redis)]
+        MONITOR[Prometheus]
     end
     
-    subgraph "External"
-        PA --> WEB[Web Sources]
-        PA --> API[APIs]
-        PA --> SPA[SPAs]
+    subgraph "⚙️ Application Layer"
+        EXTRACT[Extraction Service]
+        TRANSFORM[Transformation Service]
+        PERSIST[Persistence Service]
+        CQRS[CQRS Service]
     end
+    
+    subgraph "🎯 Core Domain"
+        ENTITIES[Product Entities]
+        VALUE_OBJ[Value Objects]
+        SPECS[Business Rules]
+        WORKFLOWS[Workflows]
+    end
+    
+    WEB --> HTTP
+    API --> HTTP
+    SPA --> SEL
+    STREAM --> QUEUE
+    
+    HTTP --> PARSE
+    SEL --> PARSE
+    QUEUE --> PARSE
+    
+    PARSE --> EXTRACT
+    EXTRACT --> TRANSFORM
+    TRANSFORM --> PERSIST
+    PERSIST --> CQRS
+    
+    CQRS --> ENTITIES
+    ENTITIES --> VALUE_OBJ
+    VALUE_OBJ --> SPECS
+    SPECS --> WORKFLOWS
+    
+    CACHE --> EXTRACT
+    DB --> PERSIST
+    REDIS --> CACHE
+    MONITOR --> PARSE
 ```
 
 ## ✨ Key Features
@@ -153,13 +188,3 @@ MIT License - see [LICENSE](LICENSE) for details.
 ## 👨‍💻 Author & Programmer
 
 **Mohammad Atashi**
-
----
-
-<div align="center">
-
-**Built with ❤️ by Mohammad Atashi**
-
-[⭐ Star this repo](https://github.com/TensorScholar/data-acquisition-framework) | [🐛 Report Bug](https://github.com/TensorScholar/data-acquisition-framework/issues) | [💡 Request Feature](https://github.com/TensorScholar/data-acquisition-framework/issues)
-
-</div>
