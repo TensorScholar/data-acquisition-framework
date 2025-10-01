@@ -195,4 +195,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👨‍💻 Author
 
-**Mohammad Atashi** - [mohammadaliatashi@icloud.com](mailto:mohammadaliatashi@icloud.com)
+**Mohammad Atashi**
