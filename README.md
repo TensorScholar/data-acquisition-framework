@@ -11,64 +11,35 @@
 
 ```mermaid
 graph TB
-    subgraph "🌐 External Sources"
-        WEB[Websites]
-        API[REST APIs]
-        SPA[Single Page Apps]
-        STREAM[Real-time Streams]
+    subgraph "External"
+        A[Websites]
+        B[APIs]
+        C[SPAs]
     end
     
-    subgraph "🔌 Adapters Layer"
-        HTTP[HTTP Client]
-        SEL[WebDriver]
-        QUEUE[Message Queue]
+    subgraph "Infrastructure"
+        D[Parsers]
+        E[Cache]
+        F[Database]
     end
     
-    subgraph "🏛️ Infrastructure Layer"
-        PARSE[Parsers]
-        CACHE[Multi-level Cache]
-        DB[(Elasticsearch)]
-        REDIS[(Redis)]
-        MONITOR[Prometheus]
+    subgraph "Application"
+        G[Services]
+        H[Workflows]
     end
     
-    subgraph "⚙️ Application Layer"
-        EXTRACT[Extraction Service]
-        TRANSFORM[Transformation Service]
-        PERSIST[Persistence Service]
-        CQRS[CQRS Service]
+    subgraph "Core"
+        I[Domain]
     end
     
-    subgraph "🎯 Core Domain"
-        ENTITIES[Product Entities]
-        VALUE_OBJ[Value Objects]
-        SPECS[Business Rules]
-        WORKFLOWS[Workflows]
-    end
-    
-    WEB --> HTTP
-    API --> HTTP
-    SPA --> SEL
-    STREAM --> QUEUE
-    
-    HTTP --> PARSE
-    SEL --> PARSE
-    QUEUE --> PARSE
-    
-    PARSE --> EXTRACT
-    EXTRACT --> TRANSFORM
-    TRANSFORM --> PERSIST
-    PERSIST --> CQRS
-    
-    CQRS --> ENTITIES
-    ENTITIES --> VALUE_OBJ
-    VALUE_OBJ --> SPECS
-    SPECS --> WORKFLOWS
-    
-    CACHE --> EXTRACT
-    DB --> PERSIST
-    REDIS --> CACHE
-    MONITOR --> PARSE
+    A --> D
+    B --> D
+    C --> D
+    D --> G
+    G --> H
+    H --> I
+    E --> G
+    F --> G
 ```
 
 ## ✨ Key Features
