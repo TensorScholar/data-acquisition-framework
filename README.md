@@ -386,25 +386,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Memory Usage**: < 512MB per instance
 - **CPU Usage**: < 50% under normal load
 
-## 🔮 Roadmap
-
-- [ ] **Q1 2024**: GraphQL API support
-- [ ] **Q2 2024**: Machine learning model training pipeline
-- [ ] **Q3 2024**: Multi-cloud deployment support
-- [ ] **Q4 2024**: Advanced analytics dashboard
-- [ ] **Q1 2025**: Real-time collaboration features
-
----
-
 ## 👨‍💻 Author & Programmer
 
-**Mohammad Atashi**  
-*Senior Software Engineer & Data Acquisition Specialist*
-
-- 🌐 **GitHub**: [@TensorScholar](https://github.com/TensorScholar)
-- 💼 **LinkedIn**: [Mohammad Atashi](https://linkedin.com/in/mohammad-atashi)
-- 📧 **Email**: mohammad.atashi@example.com
-- 🐦 **Twitter**: [@TensorScholar](https://twitter.com/TensorScholar)
+**Mohammad Atashi**
 
 ---
 
