@@ -5,62 +5,75 @@
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/TensorScholar/data-acquisition-framework)
 [![Node.js](https://img.shields.io/badge/node.js-20.x-green.svg)](https://nodejs.org/)
 
-> Enterprise-grade data extraction pipeline built with TypeScript, featuring DDD, CQRS, and comprehensive testing.
+A modern, enterprise-grade data extraction and processing framework designed for high-performance, scalable data acquisition from multiple sources. Built with TypeScript and following Domain-Driven Design (DDD) principles, this framework implements CQRS (Command Query Responsibility Segregation) for optimal performance and maintainability.
+
+The system provides robust data extraction capabilities from static websites, dynamic Single Page Applications (SPAs), REST APIs, and real-time streams. It features advanced caching mechanisms, comprehensive monitoring, and a full testing suite including unit, integration, performance, and chaos engineering tests.
+
+Perfect for e-commerce data extraction, content aggregation, and any scenario requiring reliable, scalable data acquisition with enterprise-level quality and observability.
 
 ## 🏗️ Architecture
 
 ```mermaid
 graph TB
-    subgraph "🌐 External Sources"
-        WEB[Websites]
-        API[REST APIs]
-        SPA[Single Page Apps]
+    subgraph "External Layer"
+        A[Websites]
+        B[REST APIs]
+        C[Single Page Apps]
+        D[Real-time Streams]
     end
     
-    subgraph "🔌 Adapters"
-        HTTP[HTTP Client]
-        SEL[WebDriver]
-        QUEUE[Message Queue]
+    subgraph "Adapters Layer"
+        E[HTTP Client]
+        F[WebDriver]
+        G[Message Queue]
     end
     
-    subgraph "🏛️ Infrastructure"
-        PARSE[Parsers]
-        CACHE[Redis Cache]
-        DB[(Elasticsearch)]
-        MONITOR[Prometheus]
+    subgraph "Infrastructure Layer"
+        H[BeautifulSoup Parser]
+        I[Selenium Parser]
+        J[Redis Cache]
+        K[Elasticsearch]
+        L[Prometheus]
     end
     
-    subgraph "⚙️ Application Services"
-        EXTRACT[Extraction]
-        TRANSFORM[Transformation]
-        PERSIST[Persistence]
+    subgraph "Application Layer"
+        M[Extraction Service]
+        N[Transformation Service]
+        O[Persistence Service]
+        P[CQRS Service]
     end
     
-    subgraph "🎯 Domain Core"
-        ENTITIES[Entities]
-        VALUE_OBJ[Value Objects]
-        SPECS[Business Rules]
+    subgraph "Domain Layer"
+        Q[Product Entities]
+        R[Value Objects]
+        S[Business Rules]
+        T[Workflows]
     end
     
-    WEB --> HTTP
-    API --> HTTP
-    SPA --> SEL
+    A --> E
+    B --> E
+    C --> F
+    D --> G
     
-    HTTP --> PARSE
-    SEL --> PARSE
-    QUEUE --> PARSE
+    E --> H
+    F --> I
+    G --> H
     
-    PARSE --> EXTRACT
-    EXTRACT --> TRANSFORM
-    TRANSFORM --> PERSIST
+    H --> M
+    I --> M
     
-    EXTRACT --> ENTITIES
-    TRANSFORM --> VALUE_OBJ
-    PERSIST --> SPECS
+    M --> N
+    N --> O
+    O --> P
     
-    CACHE -.-> EXTRACT
-    DB -.-> PERSIST
-    MONITOR -.-> PARSE
+    M --> Q
+    N --> R
+    O --> S
+    P --> T
+    
+    J -.-> M
+    K -.-> O
+    L -.-> H
 ```
 
 ## ✨ Key Features
