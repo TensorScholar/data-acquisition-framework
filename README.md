@@ -196,17 +196,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👨‍💻 Author
 
 **Mohammad Atashi** - [mohammadaliatashi@icloud.com](mailto:mohammadaliatashi@icloud.com)
-
-**GitHub Repository**: [https://github.com/TensorScholar/data-acquisition-framework](https://github.com/TensorScholar/data-acquisition-framework)
-
-## 🙏 Acknowledgments
-
-- Clean Architecture principles by Robert C. Martin
-- Domain-Driven Design concepts by Eric Evans
-- Chaos Engineering practices by Netflix
-- Modern TypeScript development practices
-- Open source community contributions
-
----
-
-*Built with ❤️ for the modern data-driven world*
